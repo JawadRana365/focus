@@ -186,5 +186,25 @@ class Api extends CI_Controller {
 		}
 	}
 
+	function uploadVideoApi(){
+		$video = base64_decode($this->input->post('file');
+		$path ='./uploads/videos';
+		$filename = $time.'.mp4';
+		$res = file_put_contents($path.$filename,$getimages[$i]);
+  		if($res){
+  			 $url = 'uploads/videos/'.$filename;
+		    $set1 =  $this->ApiModel->createObject(array(
+		    	"url"         => $url,
+		    	"cover_url"   => $url,
+		    	"title"       => $this->input->post('name'),
+		    	"description" => $this->input->post('description'),
+		    	"status"      => $this->input->post('status')
+		    ),'videos');
+		    echo json_encode(array("status"=> 200, "message" => "Video Uploaded Successfully"));
+  		}else{
+
+		    echo json_encode(array("status"=> 400, "message" => error_get_last());
+  		}
+	}
 
 }

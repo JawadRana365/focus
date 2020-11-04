@@ -71,7 +71,7 @@ app.controller('videoListCtrl', function($scope, $http) {
   });
 
   $scope.selectRecord = function(index){
-    $scope.src = "<?=base_url()?>"+$scope.videos[index].url;
+    $scope.src = "<?=base_url()?>"+$scope.videos[index].url;  
     document.querySelector("#video_1 > source").src =  "<?=base_url()?>"+$scope.videos[index].url;
     document.getElementById('video_1').load();
   }
